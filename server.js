@@ -3,7 +3,7 @@ const http = require("http");
 const server = http.createServer((req, res) => {
 
     // GET REQUEST
-    if(req.method === "GET"){
+    if (req.method === "GET") {
 
         res.writeHead(200, {
             "Content-Type": "application/json"
@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
     }
 
     // POST REQUEST
-    else if(req.method === "POST"){
+    else if (req.method === "POST") {
 
         let body = "";
 
@@ -41,8 +41,24 @@ const server = http.createServer((req, res) => {
 
     }
 
+    // WRONG ROUTE
+    else {
+
+        res.writeHead(404, {
+            "Content-Type": "application/json"
+        });
+
+        res.end(JSON.stringify({
+            message: "Route Not Found"
+        }));
+
+    }
+
 });
 
-server.listen(3000, () => {
-    console.log("Server running on port 3000");
+// IMPORTANT FOR RAILWAY HOSTING
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+    console.log("Server running on port " + PORT);
 });
