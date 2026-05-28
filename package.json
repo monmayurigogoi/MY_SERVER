@@ -1,5 +1,5 @@
 {
-  "name": "my_server",
+  "name": "MY_SERVER",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/monmayurigogoi/myserver.git"
+    "url": "git+https://github.com/monmayurigogoi/MY_SERVER.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/monmayurigogoi/myserver/issues"
+    "url": "https://github.com/monmayurigogoi/MY_SERVER/issues"
   },
-  "homepage": "https://github.com/monmayurigogoi/myserver#readme",
+  "homepage": "https://github.com/monmayurigogoi/MY_SERVER#readme",
   "dependencies": {
     "express": "^5.2.1"
   }
