@@ -1,5 +1,5 @@
 {
-  "name": "MY_SERVER",
+  "name": "my_server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -20,5 +20,6 @@
   "homepage": "https://github.com/monmayurigogoi/MY_SERVER#readme",
   "dependencies": {
     "express": "^5.2.1"
-  }
+  },
+  "devDependencies": {}
 }
