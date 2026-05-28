@@ -1,64 +1,26 @@
-const http = require("http");
+const express = require("express");
 
-const server = http.createServer((req, res) => {
+const app = express();
 
-    // GET REQUEST
-    if (req.method === "GET") {
+app.use(express.json());
 
-        res.writeHead(200, {
-            "Content-Type": "application/json"
-        });
+const PORT = process.env.PORT || 8080;
 
-        res.end(JSON.stringify({
-            message: "GET Request Working"
-        }));
-
-    }
-
-    // POST REQUEST
-    else if (req.method === "POST") {
-
-        let body = "";
-
-        req.on("data", (chunk) => {
-            body += chunk.toString();
-        });
-
-        req.on("end", () => {
-
-            const data = JSON.parse(body);
-
-            res.writeHead(200, {
-                "Content-Type": "application/json"
-            });
-
-            res.end(JSON.stringify({
-                message: "POST Request Working",
-                receivedData: data
-            }));
-
-        });
-
-    }
-
-    // WRONG ROUTE
-    else {
-
-        res.writeHead(404, {
-            "Content-Type": "application/json"
-        });
-
-        res.end(JSON.stringify({
-            message: "Route Not Found"
-        }));
-
-    }
-
+// GET request
+app.get("/", (req, res) => {
+    res.json({
+        message: "GET Request Working"
+    });
 });
 
-// IMPORTANT FOR RAILWAY HOSTING
-const PORT = process.env.PORT || 3000;
+// POST request
+app.post("/", (req, res) => {
+    res.json({
+        message: "POST Request Working",
+        data: req.body
+    });
+});
 
-server.listen(PORT, () => {
-    console.log("Server running on port " + PORT);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
 });
